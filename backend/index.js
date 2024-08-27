@@ -6,14 +6,13 @@ import cors from "cors"
 
 dotenv.config()
 
-mongoose
-  .connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("Connected to mongoDB")
+    console.log('Connected to MongoDB');
   })
   .catch((err) => {
-    console.log(err)
-  })
+    console.error('Error connecting to MongoDB:', err);
+  });
 
 const app = express()
 
@@ -23,7 +22,7 @@ app.use(cookieParser())
 app.use(cors({ origin: ["http://localhost:5173"], credentials: true }))
 
 app.listen(3000, () => {
-  console.log("Server is running on port 3000")
+  console.log("Server is running on port http://localhost:3000")
 })
 
 // import routes
